@@ -1,19 +1,27 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface ProductCardProps {
     id: string;
     name: string;
     price: string;
     description: string;
+    thumbnail: string;
 }
 
-export default function ProductCard({ id, name, price, description }: ProductCardProps) {
+export default function ProductCard({ id, name, price, description, thumbnail }: ProductCardProps) {
     return (
         <Link href={`/product/${id}`} className="block group">
             <div className="border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 bg-white">
-                {/* Placeholder Image Area */}
-                <div className="h-64 bg-gray-200 flex items-center justify-center group-hover:bg-gray-300 transition-colors">
-                    <span className="text-gray-500 text-lg font-medium">Photo {id}</span>
+                {/* Thumbnail Image */}
+                <div className="relative h-64 bg-gray-200 group-hover:bg-gray-300 transition-colors">
+                    <Image
+                        src={thumbnail}
+                        alt={name}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover"
+                    />
                 </div>
 
                 {/* Content Area */}

@@ -2,6 +2,7 @@
 
 import { use, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import ConsultationModal from '@/components/ConsultationModal';
 import { getProduct } from '@/data/products';
 
@@ -11,6 +12,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
     const router = useRouter();
     const product = getProduct(id);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [mainImage, setMainImage] = useState<string | null>(null);
 
     if (!product) {
         return (
@@ -26,6 +28,8 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
         )
     }
 
+    const currentMainImage = mainImage || product.thumbnail;
+
     return (
         <div className="min-h-screen bg-white">
             <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
@@ -40,8 +44,39 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
 
                 <div className="lg:grid lg:grid-cols-2 lg:gap-x-12 lg:items-start">
                     {/* Image Section */}
-                    <div className="aspect-w-1 aspect-h-1 w-full bg-gray-200 rounded-lg overflow-hidden flex items-center justify-center sm:aspect-w-2 sm:aspect-h-3 h-[500px]">
-                        <span className="text-4xl text-gray-500 font-bold">Photo {product.id}</span>
+                    <div>
+                        {/* Main Image */}
+                        <div className="relative w-full h-[500px] bg-gray-200 rounded-lg overflow-hidden">
+                            <Image
+                                src={currentMainImage}
+                                alt={product.name}
+                                fill
+                                sizes="(max-width: 1024px) 100vw, 50vw"
+                                className="object-cover"
+                                priority
+                            />
+                        </div>
+
+                        {/* Detail Images */}
+                        <div className="grid grid-cols-3 gap-3 mt-3">
+                            {product.images.map((img, idx) => (
+                                <button
+                                    key={idx}
+                                    onClick={() => setMainImage(img)}
+                                    className={`relative h-32 bg-gray-200 rounded-lg overflow-hidden border-2 transition-all ${
+                                        currentMainImage === img ? 'border-blue-600' : 'border-transparent hover:border-gray-400'
+                                    }`}
+                                >
+                                    <Image
+                                        src={img}
+                                        alt={`${product.name} 상세 ${idx + 1}`}
+                                        fill
+                                        sizes="(max-width: 1024px) 33vw, 16vw"
+                                        className="object-cover"
+                                    />
+                                </button>
+                            ))}
+                        </div>
                     </div>
 
                     {/* Product Info Section */}
