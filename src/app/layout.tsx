@@ -8,7 +8,7 @@ import FloatingSocialButtons from "@/components/FloatingSocialButtons";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "모두가하우징 - 이동식주택, 목조주택 전문",
+  title: "모듈하우스 몰",
   description: "체류형쉼터, 이동식주택, 목조주택, 모듈러패시브하우스 전문 시공",
 };
 
