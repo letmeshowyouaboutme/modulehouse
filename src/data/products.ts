@@ -12,6 +12,7 @@ export const products: Product[] = [
     { id: '4', name: 'Office Pod D', price: '45,000,000 KRW', description: 'Optimized workspace for remote workers. Soundproof and pre-wired for high-speed internet.' },
     { id: '5', name: 'Luxury Glamping Unit E', price: '95,000,000 KRW', description: 'High-end camping experience module. Panoramic windows and skylight.' },
     { id: '6', name: 'Smart Home Module F', price: '135,000,000 KRW', description: 'Fully integrated IoT smart home system. Voice control lighting and temperature.' },
+    { id: '7', name: '연습용집', price: '135,000 원', description: '업데이트 연습을 위한 집임.' },
 ];
 
 export const getProduct = (id: string): Product | undefined => {
