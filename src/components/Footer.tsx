@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { Facebook, Instagram, Youtube } from 'lucide-react';
+import { Youtube } from 'lucide-react';
+import { FileText } from 'lucide-react';
 
 export default function Footer() {
     return (
@@ -35,9 +36,8 @@ export default function Footer() {
                 <div>
                     <h4 className="text-white font-semibold mb-4">SNS</h4>
                     <div className="flex gap-4">
-                        <Link href="#" className="hover:text-white transition-colors"><Youtube className="h-5 w-5" /></Link>
-                        <Link href="#" className="hover:text-white transition-colors"><Instagram className="h-5 w-5" /></Link>
-                        <Link href="#" className="hover:text-white transition-colors"><Facebook className="h-5 w-5" /></Link>
+                        <Link href="https://www.youtube.com/watch?v=C7dPjN2WU_4&list=RDC7dPjN2WU_4&start_radio=1" target="_blank" className="hover:text-white transition-colors"><Youtube className="h-5 w-5" /></Link>
+                        <Link href="https://blog.naver.com/letmeshowyouaboutme" target="_blank" className="hover:text-white transition-colors"><FileText className="h-5 w-5" /></Link>
                     </div>
                 </div>
             </div>
