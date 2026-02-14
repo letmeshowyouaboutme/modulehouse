@@ -9,9 +9,9 @@ export default function Home() {
       {/* Header / Hero Section */}
       <header className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold text-gray-900">모두가하우징 마켓플레이스</h1>
+          <h1 className="text-3xl font-bold text-gray-900">모듈하우스 몰</h1>
           <p className="mt-2 text-gray-600">
-            원하는 모듈러 주택을 쇼핑하듯 쉽게 찾아보세요.
+            썸네일을 클릭하면 상세정보를 보실 수 있습니다.
           </p>
         </div>
       </header>
