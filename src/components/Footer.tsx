@@ -7,17 +7,17 @@ export default function Footer() {
         <footer className="bg-slate-900 text-slate-300 py-12">
             <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div className="space-y-4">
-                    <h3 className="text-lg font-bold text-white">MODUGA HOUSING</h3>
+                    <h3 className="text-lg font-bold text-white">SERIM ECOTECH</h3>
                     <p className="text-sm leading-relaxed">
-                        모두가 꿈꾸는 집, 모두가 행복한 공간을 만듭니다.<br />
-                        최고의 기술력과 정성으로 보답하겠습니다.
+                        원하시는 집을 원하는 때에 맞게 배송해 드리겠습니다.<br />
+                        좋은 품질과 친절한 서비스로 행복을 드리겠습니다.
                     </p>
                 </div>
 
                 <div>
                     <h4 className="text-white font-semibold mb-4">고객센터</h4>
                     <ul className="space-y-2 text-sm">
-                        <li className="text-2xl font-bold text-white">1833-6188</li>
+                        <li className="text-2xl font-bold text-white">010-6418-8167</li>
                         <li>평일 09:00 - 18:00</li>
                         <li>주말 및 공휴일 휴무</li>
                     </ul>
@@ -42,7 +42,7 @@ export default function Footer() {
                 </div>
             </div>
             <div className="container mx-auto px-4 mt-12 pt-8 border-t border-slate-800 text-center text-xs text-slate-500">
-                <p>© 2024 MODUGA HOUSING. All rights reserved.</p>
+                <p>© SERIM ECOTECH. All rights reserved.</p>
             </div>
         </footer>
     );

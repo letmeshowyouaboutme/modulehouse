@@ -7,7 +7,7 @@ export default function Header() {
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center space-x-2">
-            <span className="text-xl font-bold text-slate-900">MODUGA HOUSING</span>
+            <span className="text-xl font-bold text-slate-900">SERIM ECOTECH</span>
           </Link>
         </div>
 
@@ -22,7 +22,7 @@ export default function Header() {
         <div className="flex items-center gap-4">
           <div className="hidden md:flex items-center gap-2 text-slate-600">
             <Phone className="h-4 w-4" />
-            <span className="text-sm font-semibold">1833-6188</span>
+            <span className="text-sm font-semibold">010-6418-8167</span>
           </div>
           <button className="md:hidden p-2 text-slate-600">
             <Menu className="h-6 w-6" />

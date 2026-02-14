@@ -40,38 +40,31 @@ export default function ConsultationPage() {
                         <h2 className="text-2xl font-bold text-slate-900 mb-6 text-center">
                             문의 정보
                         </h2>
-                        <div className="grid md:grid-cols-2 gap-6 text-slate-700">
+                        <div className="grid md:grid-cols-3 gap-6 text-slate-700">
                             <div className="bg-white p-6 rounded-lg shadow-sm">
                                 <h3 className="font-bold text-lg mb-3 text-slate-900">본사</h3>
                                 <p className="text-sm leading-relaxed">
-                                    경기도 용인시 처인구 백옥대로 1205
-                                </p>
-                            </div>
-                            <div className="bg-white p-6 rounded-lg shadow-sm">
-                                <h3 className="font-bold text-lg mb-3 text-slate-900">전시장</h3>
-                                <p className="text-sm leading-relaxed">
-                                    경기도 용인시 처인구 유림동
+                                    부산광역시 남구 대연동
                                 </p>
                             </div>
                             <div className="bg-white p-6 rounded-lg shadow-sm">
                                 <h3 className="font-bold text-lg mb-3 text-slate-900">연락처</h3>
                                 <p className="text-sm leading-relaxed">
-                                    전국전화: 1833-6188<br />
-                                    대표전화: 031-321-1688<br />
-                                    팩스: 031-332-6688
+                                    대표전화: 010-6418-8167<br />
+                                    팩스: 0504-383-4634
                                 </p>
                             </div>
                             <div className="bg-white p-6 rounded-lg shadow-sm">
                                 <h3 className="font-bold text-lg mb-3 text-slate-900">이메일</h3>
                                 <p className="text-sm leading-relaxed">
-                                    ps8868@naver.com
+                                    letmeshowyouaboutme@naver.com
                                 </p>
                             </div>
                         </div>
                         <div className="mt-8 text-center text-sm text-slate-600">
-                            <p className="mb-2">㈜풍산패시브하우스</p>
-                            <p>사업자등록번호: 336-81-01566 | 통신판매업등록번호: 2021-용인처인-01270호</p>
-                            <p>전문건설업등록번호: 용인-22-바-02호</p>
+                            <p className="mb-2">㈜세림에코텍</p>
+                            <p>사업자등록번호: 748-81-03210 | 통신판매업등록번호: 2100-예시-00000ㅇ</p>
+                            <p>전문건설업등록번호: 부산-00-바-00호</p>
                         </div>
                     </div>
                 </div>
