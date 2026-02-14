@@ -5,15 +5,43 @@ import { Send, CheckCircle } from 'lucide-react';
 
 export default function ConsultationForm() {
     const [submitted, setSubmitted] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const [isLocationUndecided, setIsLocationUndecided] = useState(false);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // Simulate API call
-        setTimeout(() => {
-            setSubmitted(true);
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }, 1000);
+        setIsSubmitting(true);
+
+        const form = e.target as HTMLFormElement;
+        const formData = {
+            name: (form.querySelector('#name') as HTMLInputElement).value,
+            phone: (form.querySelector('#phone') as HTMLInputElement).value,
+            email: (form.querySelector('#email') as HTMLInputElement).value,
+            location: isLocationUndecided ? '미정' : (form.querySelector('#location') as HTMLInputElement).value,
+            date: (form.querySelector('#date') as HTMLInputElement).value,
+            usage: (form.querySelector('input[name="usage"]:checked') as HTMLInputElement)?.value || '',
+            scale: (form.querySelector('#scale') as HTMLInputElement).value,
+            method: (form.querySelector('input[name="method"]:checked') as HTMLInputElement)?.value || '',
+        };
+
+        try {
+            const res = await fetch('/api/consultation', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData),
+            });
+
+            if (res.ok) {
+                setSubmitted(true);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                alert('상담 신청 중 오류가 발생했습니다.');
+            }
+        } catch {
+            alert('서버 연결에 실패했습니다.');
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     if (submitted) {
@@ -192,10 +220,11 @@ export default function ConsultationForm() {
                 <div className="pt-12 flex justify-center">
                     <button
                         type="submit"
-                        className="px-16 py-4 bg-blue-700 text-white text-lg font-bold rounded-lg hover:bg-blue-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center"
+                        disabled={isSubmitting}
+                        className="px-16 py-4 bg-blue-700 text-white text-lg font-bold rounded-lg hover:bg-blue-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                         <Send className="w-5 h-5 mr-2" />
-                        상담 신청하기
+                        {isSubmitting ? '신청 중...' : '상담 신청하기'}
                     </button>
                 </div>
             </form>

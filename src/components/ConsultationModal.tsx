@@ -11,6 +11,7 @@ interface ConsultationModalProps {
 }
 
 export default function ConsultationModal({ isOpen, onClose, productName, productId }: ConsultationModalProps) {
+    const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
     const [address, setAddress] = useState('');
     const [showPostcode, setShowPostcode] = useState(false);
@@ -45,16 +46,18 @@ export default function ConsultationModal({ isOpen, onClose, productName, produc
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
+                    name,
+                    phone,
+                    location: address,
                     productId,
                     productName,
-                    phone,
-                    address,
                 }),
             });
 
             if (response.ok) {
                 alert('상담 신청이 완료되었습니다.');
                 onClose();
+                setName('');
                 setPhone('');
                 setAddress('');
             } else {
@@ -102,6 +105,20 @@ export default function ConsultationModal({ isOpen, onClose, productName, produc
                     </div>
                 ) : (
                     <form onSubmit={handleSubmit} className="space-y-4">
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">
+                                성명
+                            </label>
+                            <input
+                                type="text"
+                                required
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                placeholder="이름을 입력하세요"
+                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+                            />
+                        </div>
+
                         <div>
                             <label className="block text-sm font-medium text-gray-700 mb-1">
                                 전화번호
