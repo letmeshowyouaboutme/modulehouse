@@ -17,27 +17,62 @@ export default function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4">
-        <div className="flex items-center gap-2">
-          <Link href="/" className="flex items-center space-x-2">
-            <span className="text-xl font-bold text-slate-900">SERIM ECOTECH</span>
-          </Link>
-        </div>
+    <header
+      className="sticky top-0 z-50 w-full"
+      style={{
+        background: 'rgba(255,255,255,0.97)',
+        backdropFilter: 'blur(12px)',
+        WebkitBackdropFilter: 'blur(12px)',
+        borderBottom: '1px solid var(--border)',
+        boxShadow: '0 1px 20px rgba(0,0,0,0.06)',
+      }}
+    >
+      <div className="container mx-auto flex h-[68px] items-center justify-between px-4">
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-3 group">
+          <div
+            className="w-[3px] h-7 rounded-full transition-all duration-300 group-hover:h-8"
+            style={{ background: 'var(--accent)' }}
+          />
+          <div>
+            <span
+              className="text-[17px] font-bold tracking-wider uppercase block leading-none"
+              style={{ color: 'var(--primary)', letterSpacing: '0.12em' }}
+            >
+              SERIM ECOTECH
+            </span>
+            <span className="text-[9px] tracking-widest uppercase block mt-0.5" style={{ color: 'var(--text-muted)' }}>
+              MODULE HOUSE
+            </span>
+          </div>
+        </Link>
 
-        <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-700">
-          <Link href="#" className="hover:text-slate-900 transition-colors">회사소개</Link>
-          <Link href="#" className="hover:text-slate-900 transition-colors">제품소개</Link>
-          <Link href="#" className="hover:text-slate-900 transition-colors">시공사례</Link>
-          <Link href="/consultation" className="hover:text-slate-900 transition-colors">건축상담</Link>
-          <Link href="/preconstruction" className="hover:text-slate-900 transition-colors">시공 전 정보</Link>
-          <Link href="#" className="hover:text-slate-900 transition-colors">고객센터</Link>
+        {/* Nav */}
+        <nav className="hidden md:flex items-center gap-7 text-sm font-medium">
+          {[
+            { label: '회사소개', href: '#' },
+            { label: '제품소개', href: '#' },
+            { label: '시공사례', href: '#' },
+            { label: '건축상담', href: '/consultation' },
+            { label: '시공 전 정보', href: '/preconstruction' },
+            { label: '고객센터', href: '#' },
+          ].map(({ label, href }) => (
+            <Link
+              key={label}
+              href={href}
+              className="nav-link py-1 transition-colors duration-200"
+              style={{ color: 'var(--foreground)' }}
+            >
+              {label}
+            </Link>
+          ))}
         </nav>
 
-        <div className="flex items-center gap-3">
-          <div className="hidden md:flex items-center gap-2 text-slate-600">
-            <Phone className="h-4 w-4" />
-            <span className="text-sm font-semibold">010-6418-8167</span>
+        {/* Right */}
+        <div className="flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-1.5" style={{ color: 'var(--primary)' }}>
+            <Phone className="h-3.5 w-3.5" style={{ color: 'var(--accent)' }} />
+            <span className="text-sm font-bold tracking-wide">010-6418-8167</span>
           </div>
 
           {!loading && (
@@ -47,15 +82,19 @@ export default function Header() {
                   {userDoc?.role === 'admin' && (
                     <Link
                       href="/admin"
-                      className="text-xs font-semibold text-white bg-blue-600 px-3 py-1.5 rounded-lg hover:bg-blue-700 transition-colors"
+                      className="text-xs font-semibold text-white px-3 py-1.5 rounded-sm transition-all duration-200 hover:opacity-90"
+                      style={{ background: 'var(--primary)' }}
                     >
                       관리자
                     </Link>
                   )}
-                  <span className="text-sm text-slate-600">{userDoc?.name ?? user.email}</span>
+                  <span className="text-sm" style={{ color: 'var(--text-muted)' }}>
+                    {userDoc?.name ?? user.email}
+                  </span>
                   <button
                     onClick={handleLogout}
-                    className="text-xs font-semibold text-slate-600 border border-slate-200 px-3 py-1.5 rounded-lg hover:bg-slate-50 transition-colors"
+                    className="text-xs font-medium px-3 py-1.5 rounded-sm border transition-all duration-200 hover:border-current"
+                    style={{ color: 'var(--text-muted)', borderColor: 'var(--border)' }}
                   >
                     로그아웃
                   </button>
@@ -63,7 +102,8 @@ export default function Header() {
               ) : (
                 <Link
                   href="/login"
-                  className="hidden md:inline-flex text-xs font-semibold text-white bg-slate-900 px-4 py-2 rounded-lg hover:bg-slate-700 transition-colors"
+                  className="hidden md:inline-flex text-xs font-semibold text-white px-5 py-2 rounded-sm transition-all duration-200 hover:opacity-90"
+                  style={{ background: 'var(--primary)' }}
                 >
                   로그인
                 </Link>
@@ -71,8 +111,8 @@ export default function Header() {
             </>
           )}
 
-          <button className="md:hidden p-2 text-slate-600">
-            <Menu className="h-6 w-6" />
+          <button className="md:hidden p-2" style={{ color: 'var(--primary)' }}>
+            <Menu className="h-5 w-5" />
           </button>
         </div>
       </div>

@@ -1,43 +1,110 @@
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ChevronDown } from 'lucide-react';
+
+const stats = [
+  { value: '15+', label: '년 경력' },
+  { value: '500+', label: '시공 완료' },
+  { value: '100%', label: '고객 만족' },
+  { value: '1:1', label: '맞춤 서비스' },
+];
 
 export default function HeroSection() {
-    return (
-        <section className="relative h-[80vh] flex items-center justify-center overflow-hidden bg-slate-900">
-            {/* Background Overlay */}
-            <div className="absolute inset-0 z-0">
-                <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 to-slate-900/40 z-10" />
-                {/* Placeholder for background image - in a real app, use next/image */}
-                <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1600596542815-27b88e35eabb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center" />
-            </div>
+  return (
+    <section className="relative flex flex-col overflow-hidden" style={{ minHeight: '92vh' }}>
+      {/* Background */}
+      <div className="absolute inset-0 z-0">
+        <div
+          className="absolute inset-0 z-10"
+          style={{
+            background: 'linear-gradient(105deg, rgba(28,58,46,0.93) 0%, rgba(28,58,46,0.70) 55%, rgba(28,58,46,0.35) 100%)',
+          }}
+        />
+        <div
+          className="w-full h-full bg-cover bg-center"
+          style={{
+            backgroundImage: "url('https://images.unsplash.com/photo-1600596542815-27b88e35eabb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')",
+          }}
+        />
+      </div>
 
-            <div className="container relative z-20 px-4 mx-auto text-white">
-                <div className="max-w-3xl space-y-6 animate-fade-in-up">
-                    <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-                        자연과 함께하는<br />
-                        <span className="text-blue-400">프리미엄 공간</span>을 만듭니다
-                    </h1>
-                    <p className="text-lg md:text-xl text-slate-200 leading-relaxed max-w-2xl">
-                        체류형 쉼터부터 이동식 주택, 목조주택까지.<br />
-                        모두가하우징은 당신이 꿈꾸는 가장 완벽한 휴식처를 선물합니다.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                        <Link
-                            href="/consultation"
-                            className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-all transform hover:scale-105"
-                        >
-                            무료 견적 상담하기
-                            <ArrowRight className="ml-2 h-5 w-5" />
-                        </Link>
-                        <Link
-                            href="#"
-                            className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white border-2 border-white/30 rounded-lg hover:bg-white/10 transition-all backdrop-blur-sm"
-                        >
-                            시공사례 보기
-                        </Link>
-                    </div>
-                </div>
+      {/* Content */}
+      <div className="relative z-20 flex-1 flex items-center">
+        <div className="container mx-auto px-4 py-24">
+          <div className="max-w-3xl animate-fade-in-up">
+            <p
+              className="text-xs font-semibold tracking-[0.3em] uppercase mb-6 opacity-0 animate-fade-in-up"
+              style={{ color: 'var(--accent)', animationDelay: '0.1s', animationFillMode: 'forwards' }}
+            >
+              SERIM ECOTECH — PREMIUM MODULE HOUSE
+            </p>
+
+            <h1
+              className="text-4xl md:text-[3.5rem] lg:text-[4rem] font-bold leading-[1.15] text-white mb-6 opacity-0 animate-fade-in-up"
+              style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}
+            >
+              자연과 함께하는<br />
+              <span style={{ color: 'var(--accent-light)' }}>프리미엄 공간</span>을<br />
+              만듭니다
+            </h1>
+
+            <p
+              className="text-base md:text-lg leading-relaxed mb-10 max-w-xl opacity-0 animate-fade-in-up"
+              style={{ color: 'rgba(255,255,255,0.75)', animationDelay: '0.3s', animationFillMode: 'forwards' }}
+            >
+              체류형 쉼터부터 이동식 주택, 목조주택까지.<br />
+              세림에코텍은 당신이 꿈꾸는 가장 완벽한 공간을 현실로 만들어 드립니다.
+            </p>
+
+            <div
+              className="flex flex-col sm:flex-row gap-4 opacity-0 animate-fade-in-up"
+              style={{ animationDelay: '0.4s', animationFillMode: 'forwards' }}
+            >
+              <Link
+                href="/consultation"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-bold rounded-sm transition-all duration-300 hover:opacity-90 hover:gap-3"
+                style={{ background: 'var(--accent)', color: 'var(--primary)' }}
+              >
+                무료 견적 상담하기
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link
+                href="#"
+                className="inline-flex items-center justify-center px-8 py-4 text-sm font-semibold rounded-sm border transition-all duration-300 hover:bg-white/10"
+                style={{ color: 'white', borderColor: 'rgba(255,255,255,0.35)' }}
+              >
+                시공사례 보기
+              </Link>
             </div>
-        </section>
-    );
+          </div>
+        </div>
+      </div>
+
+      {/* Stats Bar */}
+      <div
+        className="relative z-20"
+        style={{ background: 'rgba(0,0,0,0.45)', backdropFilter: 'blur(8px)' }}
+      >
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
+            {stats.map((s, i) => (
+              <div key={i} className="py-6 px-8 text-center">
+                <p className="text-2xl font-bold text-white mb-1">{s.value}</p>
+                <p className="text-xs tracking-wider" style={{ color: 'rgba(255,255,255,0.55)' }}>
+                  {s.label}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Scroll hint */}
+      <div className="absolute bottom-24 right-8 z-20 hidden md:flex flex-col items-center gap-2">
+        <span className="text-[10px] tracking-widest uppercase rotate-90 mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          SCROLL
+        </span>
+        <ChevronDown className="h-4 w-4 animate-bounce" style={{ color: 'var(--accent)' }} />
+      </div>
+    </section>
+  );
 }
