@@ -1,13 +1,6 @@
 import Link from 'next/link';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 
-const stats = [
-  { value: '15+', label: '년 경력' },
-  { value: '500+', label: '시공 완료' },
-  { value: '100%', label: '고객 만족' },
-  { value: '1:1', label: '맞춤 서비스' },
-];
-
 export default function HeroSection() {
   return (
     <section className="relative flex flex-col overflow-hidden" style={{ minHeight: '92vh' }}>
@@ -67,33 +60,7 @@ export default function HeroSection() {
                 무료 견적 상담하기
                 <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link
-                href="#"
-                className="inline-flex items-center justify-center px-8 py-4 text-sm font-semibold rounded-sm border transition-all duration-300 hover:bg-white/10"
-                style={{ color: 'white', borderColor: 'rgba(255,255,255,0.35)' }}
-              >
-                시공사례 보기
-              </Link>
             </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Stats Bar */}
-      <div
-        className="relative z-20"
-        style={{ background: 'rgba(0,0,0,0.45)', backdropFilter: 'blur(8px)' }}
-      >
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
-            {stats.map((s, i) => (
-              <div key={i} className="py-6 px-8 text-center">
-                <p className="text-2xl font-bold text-white mb-1">{s.value}</p>
-                <p className="text-xs tracking-wider" style={{ color: 'rgba(255,255,255,0.55)' }}>
-                  {s.label}
-                </p>
-              </div>
-            ))}
           </div>
         </div>
       </div>

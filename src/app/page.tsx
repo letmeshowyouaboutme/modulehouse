@@ -1,8 +1,6 @@
 import ProductCard from '@/components/ProductCard';
 import { products } from '@/data/products';
 import HeroSection from '@/components/HeroSection';
-import FeatureSection from '@/components/FeatureSection';
-import GallerySection from '@/components/GallerySection';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
@@ -10,11 +8,9 @@ export default function Home() {
   return (
     <div className="min-h-screen" style={{ background: 'var(--background)' }}>
       <HeroSection />
-      <FeatureSection />
-      <GallerySection />
 
       {/* Products Section */}
-      <section className="py-24" style={{ background: 'var(--surface-secondary)' }}>
+      <section className="py-24" style={{ background: 'var(--background)' }}>
         <div className="container mx-auto px-4">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <p className="text-sm font-semibold tracking-widest uppercase mb-3" style={{ color: 'var(--accent)' }}>
